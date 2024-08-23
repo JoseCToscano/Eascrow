@@ -1,31 +1,50 @@
 #![cfg(test)]
 
 use super::*;
-use soroban_sdk::{log, testutils::{Address, Logs}, Env};
+use soroban_sdk::{testutils, Address, Env, String, log, testutils::{Logs}};
 extern crate std;
 
+fn create_token_contract<'a>(
+    e: &Env,
+    admin: &Address,
+) -> (token::Client<'a>, token::StellarAssetClient<'a>) {
+    let sac = e.register_stellar_asset_contract_v2(admin.clone());
+    (
+        token::Client::new(e, &sac.address()),
+        token::StellarAssetClient::new(e, &sac.address()),
+    )
+}
+
+
+// Pour faire les tests avec les logs : 
+// cargo test -- --nocapture
 #[test]
 fn test() {
-    
-    
     let env = Env::default();
+    env.mock_all_auths();
+
     let contract_id = env.register_contract(None, EascrowContract);
     let client = EascrowContractClient::new(&env, &contract_id);
     
-    let buyer = <soroban_sdk::Address as Address>::generate(&env);
-    let seller = <soroban_sdk::Address as Address>::generate(&env);
-    
-    std::println!("{:#?}", buyer);
-    std::println!("{:#?}", seller);
+    let token_admin = <soroban_sdk::Address as testutils::Address>::generate(&env);
+    let buyer = <soroban_sdk::Address as testutils::Address>::generate(&env);
+    let seller = <soroban_sdk::Address as testutils::Address>::generate(&env);
 
-    client.initialize(&buyer, &seller);
+    let token = create_token_contract(&env, &token_admin);
+    let token_client = token.0;
+    let token_admin_client = token.1;
+
+    std::println!("buyer balance : {:#?}", token_client.balance(&buyer));
+    token_admin_client.mint(&buyer, &10);
+    std::println!("buyer balance : {:#?}", token_client.balance(&buyer));
+
+    client.initialize(&buyer, &seller, &token_client.address);
     client.fund(&buyer);
+    std::println!("buyer balance : {:#?}", token_client.balance(&buyer));
+    std::println!("contract balance : {:#?}", token_client.balance(&contract_id));
     client.release_funds( &seller);
 
-    //env.logger().print("{?#}", address1);
-    //let words = client.hello(&symbol_short!("Dev"));
-    //assert_eq!(
-    //    words,
-    //    vec![&env, symbol_short!("Hello"), symbol_short!("Dev"),]
-    //);
+    // Méthode pour forcer l'adresse sur le token XLM sur testnet
+    //let address_str = String::from_str(&env, "CDLZFC3SYJYDZT7K67VZ75HPJVIEUVNIXF47ZG2FB2RMQQVU2HHGCYSC");
+    //let native_token = Address::from_string(&address_str);
 }
