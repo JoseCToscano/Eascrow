@@ -34,15 +34,25 @@ fn test() {
     let token_client = token.0;
     let token_admin_client = token.1;
 
+    std::println!("\nMint phase");
     std::println!("buyer balance : {:#?}", token_client.balance(&buyer));
-    token_admin_client.mint(&buyer, &10);
+    token_admin_client.mint(&buyer, &100);
     std::println!("buyer balance : {:#?}", token_client.balance(&buyer));
 
-    client.initialize(&buyer, &seller, &token_client.address);
-    client.fund(&buyer);
+    client.initialize(&buyer, &seller, &token_client.address, &25);
+
+
+    std::println!("\nFunding phase");
+    client.fund(&buyer, &10);
+    client.fund(&buyer, &15);
     std::println!("buyer balance : {:#?}", token_client.balance(&buyer));
     std::println!("contract balance : {:#?}", token_client.balance(&contract_id));
+
+    std::println!("\nRelease funds phase");
     client.release_funds( &seller);
+    std::println!("contract balance : {:#?}", token_client.balance(&contract_id));
+    std::println!("seller balance : {:#?}", token_client.balance(&seller));
+
 
     // Méthode pour forcer l'adresse sur le token XLM sur testnet
     //let address_str = String::from_str(&env, "CDLZFC3SYJYDZT7K67VZ75HPJVIEUVNIXF47ZG2FB2RMQQVU2HHGCYSC");
