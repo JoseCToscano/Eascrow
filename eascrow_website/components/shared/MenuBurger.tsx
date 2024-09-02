@@ -8,7 +8,6 @@ import { Menu, X } from 'lucide-react';
 
 const MenuBurger = () => {
   const [isOpen, setIsOpen] = useState<Boolean>(false);
-  console.log(isOpen);
 
   const handleOpen = () => {
     setIsOpen(!isOpen);

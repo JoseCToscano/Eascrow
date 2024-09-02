@@ -6,7 +6,7 @@ import {
 import Image from 'next/image';
 import Link from 'next/link';
 import MenuBurger from './MenuBurger';
-import { Button } from '../ui/button';
+import ShimmerButton from '@/components/magicui/shimmer-button';
 
 interface HeaderProps {
   children?: ReactNode;
@@ -14,19 +14,19 @@ interface HeaderProps {
 
 const Header: React.FC<HeaderProps> = ({ children }) => {
   return (
-    <header className="flex justify-between items-center mb-10">
+    <header className="sticky top-0 left-4 w-full p-4 mb-4 flex justify-between items-center backdrop-blur-lg brightness-100 z-10">
       <div>
         <Link href="/">
           <Image
-            src="/logo-white.png"
+            src="/logo-white.avif"
             alt="Eascrow website"
-            width="250"
+            width="230"
             height="30"
             priority
             className="sm:hidden"
           />
           <Image
-            src="/logo-white.png"
+            src="/logo-white.avif"
             alt="Eascrow website"
             width="150"
             height="30"
@@ -50,9 +50,19 @@ const Header: React.FC<HeaderProps> = ({ children }) => {
       </div>
       <div>
         <MenuBurger />
-        <Button className="hidden sm:block bg-neonMintGreen text-xl text-darkBlueGray py-3 h-fit rounded-lg hover:bg-transparent hover:text-neonMintGreen">
-          Launch DApp
-        </Button>
+        <Link href="/dapp" className="hidden sm:block">
+          <ShimmerButton
+            className="shadow-2xl hover:opacity-90 "
+            background="#5cffb8"
+            shimmerSize="1px"
+            shimmerColor="#001122"
+            borderRadius="13px"
+          >
+            <span className=" whitespace-pre-wrap text-center text-sm font-medium leading-none tracking-tight dark:from-white dark:to-slate-900/10 lg:text-lg text-bgDark">
+              Launch DApp
+            </span>
+          </ShimmerButton>
+        </Link>
       </div>
     </header>
   );

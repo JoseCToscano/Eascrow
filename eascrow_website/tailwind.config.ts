@@ -78,14 +78,38 @@ const config = {
           from: { height: 'var(--radix-accordion-content-height)' },
           to: { height: '0' },
         },
+        'spin-around': {
+          '0%': {
+            transform: 'translateZ(0) rotate(0)',
+          },
+          '15%, 35%': {
+            transform: 'translateZ(0) rotate(90deg)',
+          },
+          '65%, 85%': {
+            transform: 'translateZ(0) rotate(270deg)',
+          },
+          '100%': {
+            transform: 'translateZ(0) rotate(360deg)',
+          },
+        },
+        slide: {
+          to: {
+            transform: 'translate(calc(100cqw - 100%), 0)',
+          },
+        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
+        'spin-around': 'spin-around calc(var(--speed) * 2) infinite linear',
+        slide: 'slide var(--speed) ease-in-out infinite alternate',
       },
       backgroundImage: {
         'radial-gradient-center':
           'radial-gradient(circle at center,#19212B, #001122 )',
+        'custom-gradient':
+          'linear-gradient(90deg, rgba(68,144,111,0.5018382352941176) 0%, rgba(0,17,34,0.7959558823529411) 88%)',
+        'custom-bg': "url('/background.png')",
       },
     },
   },
