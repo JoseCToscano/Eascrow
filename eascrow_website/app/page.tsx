@@ -15,12 +15,12 @@ import { Box, ContactRound, Truck } from 'lucide-react';
 export default function Home() {
   return (
     <>
-      <div className="text-center flex flex-col items-center">
+      <div className="text-center flex flex-col items-center ">
         <h1 className="text-4xl md:text-5xl font-bold">
           When the trusted third is the{' '}
           <span className="text-neonMintGreen block my-4">blockchain</span>
         </h1>
-        <p className="text-slate-400 mb-10 md:max-w-screen-lg">
+        <p className="text-slate-400 px-4 mb-10 md:max-w-screen-lg">
           Eascrow leverages Soroban to provide secured escrow services for web3,
           guaranteeing fast and fraud-resistant payments.
         </p>
@@ -41,8 +41,8 @@ export default function Home() {
           />
         </div>
       </section>
-      <div className="flex flex-col items-center text-slate-400 w-screen bg-bgDark">
-        <div className="bg-bgDark items-center flex flex-col">
+      <div className="flex flex-col items-center text-slate-400 w-screen">
+        <div className="items-center flex flex-col">
           <section className="w-full max-w-lg h-64 flex flex-col justify-center space-y-1">
             <p className="text-xl text-center text-slate-400">Trusted by</p>
             <div className="flex justify-evenly">
@@ -64,7 +64,7 @@ export default function Home() {
               </div>
             </div>
           </section>
-          <Separator className="w-3/4 bg-gray-700 mb-10" />
+          <Separator className="w-screen bg-gray-800 mb-10" />
           <section className="flex flex-col items-center md:max-w-screen-lg mb-32">
             <div className="mb-4">
               <Image
@@ -263,29 +263,136 @@ export default function Home() {
               </Card>
             </div>
           </section>
-          <section className="flex flex-col md:flex-row w-3/4 md:justify-between w-11/12">
+          <section className="flex flex-col md:flex-row  md:justify-between w-11/12 text-xl mb-20">
             <h2 className="text-customWhite text-3xl md:text-5xl font-bold mb-10 md:max-w-sm">
               Common Questions
             </h2>
-            <Accordion type="single" collapsible className="w-full">
-              <AccordionItem value="item-1" className="border-slate-700">
-                <AccordionTrigger>Is it accessible?</AccordionTrigger>
-                <AccordionContent>
-                  <Card className="max-w-screen md:max-w-screen-md bg-transparent border-gray-700 rounded-[30px] w-full p-5 my-4 space-y-2 shadow-inner flex flex-col items-center">
-                    <CardContent className="text-slate-400 font-bold">
-                      <p>
-                        At Eascrow, we want to provide a quality service at a
-                        low price, which is why we've opted for a
-                        commission-based payment system, with no subscription
-                        required. Our dApp is completely free to use, and we
-                        charge a generic commission of 0.50%, regardless of the
-                        amount of your transactions
-                      </p>
-                    </CardContent>
-                  </Card>
-                </AccordionContent>
-              </AccordionItem>
-            </Accordion>
+            <div className="space-y-5">
+              <Accordion type="single" collapsible className="w-full">
+                <AccordionItem value="item-1" className="border-slate-700">
+                  <AccordionTrigger
+                    className="text-customWhite text-left"
+                    style={{ textDecoration: 'none' }}
+                  >
+                    What is Eascrow and how does it work?
+                  </AccordionTrigger>
+                  <AccordionContent>
+                    <Card className="max-w-screen md:max-w-screen-md bg-gray-800 border-none rounded-[20px] pt-4">
+                      <CardContent className="text-slate-400 font-bold text-base">
+                        <p>
+                          At Eascrow, we want to provide a quality service at a
+                          low price, which is why we've opted for a
+                          commission-based payment system, with no subscription
+                          required. Our dApp is completely free to use, and we
+                          charge a generic commission of 0.50%, regardless of
+                          the amount of your transactions
+                        </p>
+                      </CardContent>
+                    </Card>
+                  </AccordionContent>
+                </AccordionItem>
+              </Accordion>
+              <Accordion type="single" collapsible className="w-full">
+                <AccordionItem value="item-1" className="border-slate-700">
+                  <AccordionTrigger
+                    className="text-customWhite text-left"
+                    style={{ textDecoration: 'none' }}
+                  >
+                    How does Eascrow enhance security in online transactions?
+                  </AccordionTrigger>
+                  <AccordionContent>
+                    <Card className="max-w-screen md:max-w-screen-md bg-gray-800 border-none rounded-[20px] pt-4">
+                      <CardContent className="text-slate-400 font-bold text-base">
+                        <p>
+                          Eascrow is a web3 escrow service that utilizes Soroban
+                          smart contracts to securely hold and release funds
+                          based on pre-agreed terms between parties. It acts as
+                          a trusted intermediary in online transactions,
+                          ensuring that funds are only released when the
+                          conditions of the contract are met, such as the
+                          delivery of goods or completion of services.
+                        </p>
+                      </CardContent>
+                    </Card>
+                  </AccordionContent>
+                </AccordionItem>
+              </Accordion>
+              <Accordion type="single" collapsible className="w-full">
+                <AccordionItem value="item-1" className="border-slate-700">
+                  <AccordionTrigger
+                    className="text-customWhite text-left"
+                    style={{ textDecoration: 'none' }}
+                  >
+                    Who can benefit from using Eascrow?
+                  </AccordionTrigger>
+                  <AccordionContent>
+                    <Card className="max-w-screen md:max-w-screen-md bg-gray-800 border-none rounded-[20px] pt-4">
+                      <CardContent className="text-slate-400 font-bold text-base">
+                        <p>
+                          Eascrow is beneficial for a wide range of users,
+                          including individuals and businesses involved in
+                          material goods trade, freelancers, employers, and
+                          anyone engaged in international transactions. It
+                          streamlines and secures the transaction process,
+                          making it ideal for both simple and complex financial
+                          interactions.
+                        </p>
+                      </CardContent>
+                    </Card>
+                  </AccordionContent>
+                </AccordionItem>
+              </Accordion>
+              <Accordion type="single" collapsible className="w-full">
+                <AccordionItem value="item-1" className="border-slate-700">
+                  <AccordionTrigger
+                    className="text-customWhite text-left"
+                    style={{ textDecoration: 'none' }}
+                  >
+                    What makes Eascrow different from traditional escrow
+                    services?
+                  </AccordionTrigger>
+                  <AccordionContent>
+                    <Card className="max-w-screen md:max-w-screen-md bg-gray-800 border-none rounded-[20px] pt-4">
+                      <CardContent className="text-slate-400 font-bold text-base">
+                        <p>
+                          Unlike traditional escrow services, Eascrow leverages
+                          the power of blockchain technology through Soroban
+                          smart contracts. This enhances security and
+                          transparency while simplifying the process.
+                          Additionally, Eascrow offers this service at a low fee
+                          of only 0.50% per transaction, making it both
+                          cost-effective and efficient.
+                        </p>
+                      </CardContent>
+                    </Card>
+                  </AccordionContent>
+                </AccordionItem>
+              </Accordion>
+              <Accordion type="single" collapsible className="w-full">
+                <AccordionItem value="item-1" className="border-slate-700">
+                  <AccordionTrigger
+                    className="text-customWhite text-left"
+                    style={{ textDecoration: 'none' }}
+                  >
+                    How does Eascrow handle international transactions?
+                  </AccordionTrigger>
+                  <AccordionContent>
+                    <Card className="max-w-screen md:max-w-screen-md bg-gray-800 border-none rounded-[20px] pt-4">
+                      <CardContent className="text-slate-400 font-bold text-base">
+                        <p>
+                          Eascrow is specifically designed to simplify and
+                          secure cross-border transactions. Using Soroban smart
+                          contracts, it efficiently manages the complexities of
+                          international regulations, currency exchange, and
+                          legal requirements, making global transactions
+                          straightforward and secure for all parties involved.
+                        </p>
+                      </CardContent>
+                    </Card>
+                  </AccordionContent>
+                </AccordionItem>
+              </Accordion>
+            </div>
           </section>
         </div>
       </div>

@@ -26,7 +26,7 @@ const config = {
       colors: {
         bgDark: '#34455C',
         darkBlueGray: '#18202B',
-        blueGray: '#f4f4f4',
+        blueGray: '#34455C',
         neonMintGreen: '#5cffb8',
         customLightGray: '#cbcdcf',
         customWhite: '#fafbfb',
