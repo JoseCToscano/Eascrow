@@ -30,8 +30,8 @@ export default function Home() {
           </Button>
         </Link>
       </div>
-      <section className="flex flex-col items-center space-y-4">
-        <div className="w-full max-w-4xl rounded-[25px] border-gray-700 overflow-hidden">
+      <section className="flex flex-col items-center space-y-4 bg-custom-bg bg-local bg-contain bg-no-repeat md:bg-cover">
+        <div className="w-5/6 sm:w-3/4 max-w-4xl rounded-[25px] overflow-hidden">
           <Image
             src="/dashboard.png"
             alt="Dashboard overview"
@@ -100,7 +100,7 @@ export default function Home() {
               </p>
             </div>
             <div className="w-full px-2 space-y-6 lg:space-y-0 flex flex-col lg:flex-row items-center lg:justify-evenly">
-              <Card className="max-w-xs bg-transparent border-gray-700 rounded-[30px] w-full h-[400px] shadow-inner flex flex-col items-center text-center">
+              <Card className="max-w-xs bg-transparent border-gray-700 rounded-[30px] w-full h-[400px] shadow-inner shadow-blueGray flex flex-col items-center text-center">
                 <div className="w-16 h-16 shadow-lg shadow-black rounded-full flex justify-center items-center bg-[#212b38] my-10">
                   <Box color="#5cffb8" />
                 </div>
@@ -116,7 +116,7 @@ export default function Home() {
                   </p>
                 </CardContent>
               </Card>
-              <Card className="max-w-xs bg-transparent border-gray-700 rounded-[30px] w-full h-[400px] shadow-inner flex flex-col items-center text-center">
+              <Card className="max-w-xs bg-transparent border-gray-700 rounded-[30px] w-full h-[400px] shadow-inner shadow-blueGray flex flex-col items-center text-center">
                 <div className="w-16 h-16 shadow-lg shadow-black rounded-full flex justify-center items-center bg-[#212b38] my-10">
                   <ContactRound color="#5cffb8" />
                 </div>
@@ -132,7 +132,7 @@ export default function Home() {
                   </p>
                 </CardContent>
               </Card>
-              <Card className="max-w-xs bg-transparent border-gray-700 rounded-[30px] w-full h-[400px] shadow-inner flex flex-col items-center text-center">
+              <Card className="max-w-xs bg-transparent border-gray-700 rounded-[30px] w-full h-[400px] shadow-inner shadow-blueGray flex flex-col items-center text-center">
                 <div className="w-16 h-16 shadow-lg shadow-black rounded-full flex justify-center items-center bg-[#212b38] my-10">
                   <Truck color="#5cffb8" />
                 </div>

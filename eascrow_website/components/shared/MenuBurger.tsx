@@ -18,7 +18,7 @@ const MenuBurger = () => {
       {isOpen ? (
         <>
           <X onClick={handleOpen} className="sm:hidden" />
-          <NavigationMenu className="absolute left-0 top-20 min-w-full flex flex-col items-start p-7 space-y-4 text-slate-400 bg-radial-gradient-center shadow-lg shadow-bgDark rounded-lg ">
+          <NavigationMenu className="absolute left-0 top-20 min-w-full flex flex-col items-start p-7 space-y-4 text-slate-400 bg-radial-gradient-center rounded-md">
             <NavigationMenuLink href="/about">About</NavigationMenuLink>
             <NavigationMenuLink href="/">Feature</NavigationMenuLink>
             <NavigationMenuLink href="/">Pricing</NavigationMenuLink>
