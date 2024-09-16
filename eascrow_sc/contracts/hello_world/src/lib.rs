@@ -1,5 +1,5 @@
 #![no_std]
-use soroban_sdk::{contract, contractimpl, symbol_short, testutils::arbitrary::arbitrary::unstructured::Int, token, vec, Address, ConversionError, Env, Symbol, TryFromVal, Val, Vec};
+use soroban_sdk::{contract, contractimpl, token, Address, ConversionError, Env, TryFromVal, Val};
 
 #[derive(Clone, Copy)]
 #[repr(u32)]
@@ -19,6 +19,64 @@ impl TryFromVal<Env, DataKey> for Val {
     }
 }
 
+fn get_contract_address(env: &Env) -> Address {
+    env.current_contract_address()
+}
+
+fn get_token_address(env: &Env) -> Address {
+    env.storage().instance().get(&DataKey::NativeToken).unwrap()
+}
+
+fn get_buyer_address(env: &Env) -> Address {
+    env.storage().instance().get(&DataKey::Buyer).unwrap()
+}
+
+fn get_seller_address(env: &Env) -> Address {
+    env.storage().instance().get(&DataKey::Seller).unwrap()
+}
+
+fn get_is_funded(env: &Env) -> bool {
+    env.storage().instance().get(&DataKey::IsFunded).unwrap_or(false)
+}
+
+fn get_price(env: &Env) -> i128 {
+    env.storage().instance().get(&DataKey::Price).unwrap()
+}
+
+fn get_contract_balance(env: &Env) -> i128 {
+    let native_token = token::Client::new(&env, &get_token_address(env));
+    native_token.balance(&get_contract_address(env))
+}
+
+fn get_token_client(env: &Env) -> token::TokenClient<'_> {
+    token::Client::new(&env, &get_token_address(env))
+}
+
+fn set_buyer_address(env: &Env, buyer: Address) {
+    env.storage().instance().set(&DataKey::Buyer, &buyer);
+}
+
+fn set_seller_address(env: &Env, seller: Address) {
+    env.storage().instance().set(&DataKey::Seller, &seller);
+}
+
+fn set_is_funded(env: &Env, is_funded: bool) {
+    env.storage().instance().set(&DataKey::IsFunded, &is_funded);
+}
+
+fn set_native_token(env: &Env, native_token: Address) {
+    env.storage().instance().set(&DataKey::NativeToken, &native_token);
+}
+
+fn set_price(env: &Env, price: i128) {
+    env.storage().instance().set(&DataKey::Price, &price);
+}
+
+fn transfer(env: &Env, from: &Address, to: &Address, amount: &i128) {
+    let native_token: token::TokenClient<'_> = get_token_client(&env);
+    native_token.transfer(&from, &to, &amount);
+}
+
 #[contract]
 pub struct EascrowContract;
 
@@ -26,80 +84,59 @@ pub struct EascrowContract;
 impl EascrowContract {
     // Called by eascrow platform every time a customer wants to buy something
     pub fn initialize(env: Env, buyer: Address, seller: Address, token: Address, price: i128) {
-        env.storage().instance().set(&DataKey::Buyer, &buyer);
-        env.storage().instance().set(&DataKey::Seller, &seller);
-        env.storage().instance().set(&DataKey::IsFunded, &false);
-        env.storage().instance().set(&DataKey::NativeToken, &token);
-        env.storage().instance().set(&DataKey::Price, &price);
+        set_buyer_address(&env, buyer);
+        set_seller_address(&env, seller);
+        set_is_funded(&env, false);
+        set_native_token(&env, token);
+        set_price(&env, price);
     }
 
     // Called by customer when he add money to the contract
     pub fn fund(env: Env, buyer: Address, tokens_to_transfer: i128) {
-        let is_funded: bool = env.storage().instance().get(&DataKey::IsFunded).unwrap_or(false);
+        let is_funded: bool = get_is_funded(&env);
         if is_funded {
             panic!("Contract is already funded");
         }
 
-        // Customer add money to the contract
         buyer.require_auth();
-        let contract = env.current_contract_address();
-        let token_address: Address = env.storage().instance().get(&DataKey::NativeToken).unwrap();
-        let native_token = token::Client::new(&env, &token_address);
-        native_token.transfer(&buyer, &contract, &tokens_to_transfer);
+        let contract = get_contract_address(&env);
+        transfer(&env, &buyer, &contract, &tokens_to_transfer);
 
-        // If the contract have enough money, is_funded is set to true and it notifies the eascrow platform
-        // Otherwise, just wait for the customer to add mode money
-        let contract_balance = native_token.balance(&contract);
-        let price: i128 = env.storage().instance().get(&DataKey::Price).unwrap();
+        let contract_balance = get_contract_balance(&env);
+        let price: i128 = get_price(&env);
         if contract_balance >= price {
-            env.storage().instance().set(&DataKey::IsFunded, &true);
+            set_is_funded(&env, true);
         }
     }
 
     // Called by Eascrow platform when the customer confirms it has received the service
-    pub fn release_funds(env: Env, to: Address) {
-        let is_funded: bool = env.storage().instance().get(&DataKey::IsFunded).unwrap_or(false);
+    pub fn release_funds(env: Env) {
+        let is_funded: bool = get_is_funded(&env);
         if !is_funded {
             panic!("Contract is not funded");
         }
 
-        let seller: Address = env.storage().instance().get(&DataKey::Seller).unwrap();
-        if to != seller {
-            panic!("Funds can only be released to the seller");
-        }
+        let seller: Address = get_seller_address(&env);
+        let contract = get_contract_address(&env);
+        let price: i128 = get_price(&env);
+        transfer(&env, &contract, &seller, &price);
 
-        // Logic to transfer the funds to the seller would go here
-        let contract = env.current_contract_address();
-        let token_address: Address = env.storage().instance().get(&DataKey::NativeToken).unwrap();
-        let native_token = token::Client::new(&env, &token_address);
-        let price: i128 = env.storage().instance().get(&DataKey::Price).unwrap();
-        native_token.transfer(&contract, &seller, &price);
-        
-        // Transfer fund to seller account and wait for transaction complete aknowledgment
-        // If transaction is failed, error management (procedure to be defined)
-        // If transaction is successful, notifies Eascrow platform
-
-        env.storage().instance().set(&DataKey::IsFunded, &false);
+        set_is_funded(&env, false);
     }
 
     // Called by Eascrow platform when the customer raises dispute
-    pub fn refund(env: Env, to: Address) {
-        let is_funded: bool = env.storage().instance().get(&DataKey::IsFunded).unwrap_or(false);
+    pub fn refund(env: Env) {
+        let is_funded: bool = get_is_funded(&env);
         if !is_funded {
             panic!("Contract is not funded");
         }
 
-        let seller: Address = env.storage().instance().get(&DataKey::Buyer).unwrap();
-        if to != seller {
-            panic!("Funds can only be released to the buyer");
-        }
+        let buyer: Address = get_buyer_address(&env);
+        let contract = get_contract_address(&env);
+        let price: i128 = get_price(&env);
+        transfer(&env, &contract, &buyer, &price);
 
-        // Logic to transfer the funds to the buyer would go here
-        // Transfer fund to buyer account and wait for transaction complete aknowledgment
-        // If transaction is failed, error management (procedure to be defined)
-        // If transaction is successful, notifies Eascrow platform
-
-        env.storage().instance().set(&DataKey::IsFunded, &false);
+        set_is_funded(&env, false);
     }
 }
 

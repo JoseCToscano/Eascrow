@@ -1,7 +1,7 @@
 #![cfg(test)]
 
 use super::*;
-use soroban_sdk::{testutils, Address, Env, String, log, testutils::{Logs}};
+use soroban_sdk::{testutils, Address, Env, testutils::{Logs}};
 extern crate std;
 
 fn create_token_contract<'a>(
@@ -49,7 +49,7 @@ fn test() {
     std::println!("contract balance : {:#?}", token_client.balance(&contract_id));
 
     std::println!("\nRelease funds phase");
-    client.release_funds( &seller);
+    client.release_funds();
     std::println!("contract balance : {:#?}", token_client.balance(&contract_id));
     std::println!("seller balance : {:#?}", token_client.balance(&seller));
 
