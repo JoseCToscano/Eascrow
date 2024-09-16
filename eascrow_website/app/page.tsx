@@ -88,7 +88,10 @@ export default function Home() {
                 freelance services.
               </p>
               <Separator className="w-3/4 bg-gray-700 my-20" />
-              <h2 className="text-customWhite text-5xl font-bold mb-3">
+              <h2
+                id="feature"
+                className="text-customWhite text-5xl font-bold mb-3"
+              >
                 Features
               </h2>
               <p>
@@ -242,7 +245,10 @@ export default function Home() {
                   </div>
                 </Card>
               </div>
-              <h2 className="text-customWhite text-4xl md:text-5xl font-bold mb-10">
+              <h2
+                id="pricing"
+                className="text-customWhite text-4xl md:text-5xl font-bold mb-10"
+              >
                 Pricing
               </h2>
               <Card className="max-w-screen md:max-w-screen-md bg-transparent border-gray-700 rounded-[30px] w-full p-5 my-4 space-y-2 shadow-inner flex flex-col items-center">

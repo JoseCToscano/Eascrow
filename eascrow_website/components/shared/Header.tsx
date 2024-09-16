@@ -40,10 +40,10 @@ const Header: React.FC<HeaderProps> = ({ children }) => {
           <NavigationMenuLink href="/about" className="hover:opacity-60">
             About
           </NavigationMenuLink>
-          <NavigationMenuLink href="/" className="hover:opacity-60">
+          <NavigationMenuLink href="/#feature" className="hover:opacity-60">
             Feature
           </NavigationMenuLink>
-          <NavigationMenuLink href="/" className="hover:opacity-60">
+          <NavigationMenuLink href="/#pricing" className="hover:opacity-60">
             Pricing
           </NavigationMenuLink>
         </NavigationMenu>

@@ -4,10 +4,10 @@ import './globals.css';
 import { cn } from '@/lib/utils';
 import Layout from '@/components/shared/Layout';
 
-const fontSans = FontSans({
-  subsets: ['latin'],
-  variable: '--font-sans',
-});
+// const fontSans = FontSans({
+//   subsets: ['latin'],
+//   variable: '--font-sans',
+// });
 
 export const metadata: Metadata = {
   title: 'Eascrow, when the trusted third is the blockchain',
@@ -24,9 +24,12 @@ export default function RootLayout({ children }: RootLayoutProps) {
     <html lang="en">
       <body
         className={cn(
-          'min-h-screen bg-darkBlueGray text-customWhite font-sans antialiased ',
-          fontSans.variable
+          'min-h-screen bg-darkBlueGray text-customWhite font-sans antialiased '
         )}
+        // className={cn(
+        //   'min-h-screen bg-darkBlueGray text-customWhite font-sans antialiased ',
+        //   fontSans.variable
+        // )}
       >
         <Layout>{children}</Layout>
       </body>
