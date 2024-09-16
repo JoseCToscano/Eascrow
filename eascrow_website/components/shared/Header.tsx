@@ -37,11 +37,11 @@ const Header: React.FC<HeaderProps> = ({ children }) => {
       </div>
       <div>
         <NavigationMenu className="hidden sm:block text-slate-400 text-lg space-x-6">
-          <NavigationMenuLink href="/about" className="hover:opacity-60">
+          <NavigationMenuLink href="/#about" className="hover:opacity-60">
             About
           </NavigationMenuLink>
-          <NavigationMenuLink href="/#feature" className="hover:opacity-60">
-            Feature
+          <NavigationMenuLink href="/#features" className="hover:opacity-60">
+            Features
           </NavigationMenuLink>
           <NavigationMenuLink href="/#pricing" className="hover:opacity-60">
             Pricing

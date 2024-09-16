@@ -75,7 +75,10 @@ export default function Home() {
               />
             </div>
             <div className="text-center flex flex-col items-center px-3 my-20">
-              <h2 className="text-customWhite text-4xl font-bold mb-3">
+              <h2
+                id="about"
+                className="text-customWhite text-4xl font-bold mb-3"
+              >
                 About
               </h2>
               <p>
@@ -89,7 +92,7 @@ export default function Home() {
               </p>
               <Separator className="w-3/4 bg-gray-700 my-20" />
               <h2
-                id="feature"
+                id="features"
                 className="text-customWhite text-5xl font-bold mb-3"
               >
                 Features
