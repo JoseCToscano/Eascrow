@@ -13,7 +13,7 @@ const config = {
   prefix: '',
   theme: {
     container: {
-      center: true,
+      center: 'true',
       padding: '2rem',
       screens: {
         '2xl': '1400px',
@@ -24,8 +24,8 @@ const config = {
         sans: ['var(--font-sans)', ...fontFamily.sans],
       },
       colors: {
-        bgDark: '#19212b',
-        darkBlueGray: '#001122',
+        bgDark: '#34455C',
+        darkBlueGray: '#18202B',
         blueGray: '#f4f4f4',
         neonMintGreen: '#5cffb8',
         customLightGray: '#cbcdcf',
@@ -71,12 +71,20 @@ const config = {
       },
       keyframes: {
         'accordion-down': {
-          from: { height: '0' },
-          to: { height: 'var(--radix-accordion-content-height)' },
+          from: {
+            height: '0',
+          },
+          to: {
+            height: 'var(--radix-accordion-content-height)',
+          },
         },
         'accordion-up': {
-          from: { height: 'var(--radix-accordion-content-height)' },
-          to: { height: '0' },
+          from: {
+            height: 'var(--radix-accordion-content-height)',
+          },
+          to: {
+            height: '0',
+          },
         },
         'spin-around': {
           '0%': {

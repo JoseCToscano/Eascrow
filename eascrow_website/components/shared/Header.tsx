@@ -14,7 +14,7 @@ interface HeaderProps {
 
 const Header: React.FC<HeaderProps> = ({ children }) => {
   return (
-    <header className="sticky top-0 left-4 w-full p-4 mb-4 flex justify-between items-center backdrop-blur-lg brightness-100 z-10">
+    <header className="sticky top-0 left-4 w-full md:max-w-screen-lg p-4 mb-10 md:mb-20 flex justify-between items-center backdrop-blur-lg brightness-100 z-10">
       <div>
         <Link href="/">
           <Image
