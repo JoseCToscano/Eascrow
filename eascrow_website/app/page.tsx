@@ -34,10 +34,12 @@ export default function Home() {
         <div className="w-5/6 sm:w-3/4 max-w-4xl rounded-[25px] overflow-hidden">
           <Image
             src="/dashboard.png"
+            overrideSrc="/dashboard.png"
             alt="Dashboard overview"
             width={800}
             height={450}
             layout="responsive"
+            priority
           />
         </div>
       </section>
@@ -49,7 +51,7 @@ export default function Home() {
               <div>
                 <Image
                   src="/stellar-logo.avif"
-                  alt="Dashboard overview"
+                  alt="Stellar Blockchain"
                   width={130}
                   height={10}
                 />
@@ -258,7 +260,7 @@ export default function Home() {
                 <CardContent className="text-slate-400 font-bold">
                   <p>
                     At Eascrow, we want to provide a quality service at a low
-                    price, which is why we've opted for a commission-based
+                    price, which is why we&apos;ve opted for a commission-based
                     payment system, with no subscription required. Our dApp is
                     completely free to use, and we charge a generic commission
                     of 0.50%, regardless of the amount of your transactions
@@ -289,12 +291,13 @@ export default function Home() {
                     <Card className="max-w-screen md:max-w-screen-md bg-gray-800 border-none rounded-[20px] pt-4">
                       <CardContent className="text-slate-400 font-bold text-base">
                         <p>
-                          At Eascrow, we want to provide a quality service at a
-                          low price, which is why we've opted for a
-                          commission-based payment system, with no subscription
-                          required. Our dApp is completely free to use, and we
-                          charge a generic commission of 0.50%, regardless of
-                          the amount of your transactions
+                          Eascrow is a web3 escrow service that utilizes Soroban
+                          smart contracts to securely hold and release funds
+                          based on pre-agreed terms between parties. It acts as
+                          a trusted intermediary in online transactions,
+                          ensuring that funds are only released when the
+                          conditions of the contract are met, such as the
+                          delivery of goods or completion of services.
                         </p>
                       </CardContent>
                     </Card>
