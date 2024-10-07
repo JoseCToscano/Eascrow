@@ -33,13 +33,13 @@ export default function Home() {
       <section className="flex flex-col items-center space-y-4 bg-custom-bg bg-local bg-contain bg-no-repeat md:bg-cover">
         <div className="w-5/6 sm:w-3/4 max-w-4xl rounded-[25px] overflow-hidden">
           <Image
-            src="/dashboard.png"
-            overrideSrc="/dashboard.png"
+            src="/dashboard.webp"
             alt="Dashboard overview"
             width={800}
             height={450}
             layout="responsive"
             priority
+            rel="preload"
           />
         </div>
       </section>

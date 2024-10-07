@@ -15,7 +15,6 @@ const Footer: React.FC<FooterProps> = ({ children }) => {
           alt="Eascrow website"
           width="230"
           height="30"
-          priority
         />
       </Link>
       <div className="min-h-20 flex flex-col sm:flex-row justify-between items-center sm:space-x-4">
@@ -25,7 +24,6 @@ const Footer: React.FC<FooterProps> = ({ children }) => {
             alt="Eascrow X page"
             width="30"
             height="30"
-            priority
           />
         </Link>
         <Link href="https://www.linkedin.com/company/eascrow/" target="_blank">
@@ -34,7 +32,6 @@ const Footer: React.FC<FooterProps> = ({ children }) => {
             alt="Eascrow linkedIn page"
             width="30"
             height="30"
-            priority
           />
         </Link>
       </div>
