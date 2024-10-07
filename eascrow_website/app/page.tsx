@@ -164,13 +164,13 @@ export default function Home() {
               </Card>
             </div>
           </section>
-          <section className="flex flex-col items-center mb-20">
-            <div className="text-center flex flex-col items-center px-3">
+          <section className="flex flex-col items-center mb-20 border-2">
+            <div className="text-center flex flex-col items-center px-3 border-2">
               <h2 className="text-customWhite text-4xl md:text-5xl font-bold mb-10">
                 Benefits of Eascrow
               </h2>
-              <div className="w-full px-2 lg:space-y-0 flex flex-col items-center lg:justify-evenly ">
-                <Card className="max-w-screen-lg bg-transparent border-gray-800 rounded-[30px] w-full p-4 my-4 shadow-inner flex flex-col md:flex-row items-center">
+              <div className="w-full px-2 mb-20 space-y-5 lg:space-y-10 flex flex-col items-center lg:justify-evenly">
+                <Card className="max-w-screen-lg bg-transparent border-gray-800 rounded-[30px] w-full p-4 shadow-inner flex flex-col md:flex-row items-center">
                   <div className="mb-4">
                     <Image
                       src="/security.avif"
@@ -192,7 +192,7 @@ export default function Home() {
                     </CardContent>
                   </div>
                 </Card>
-                <Card className="max-w-screen-lg bg-transparent border-gray-800 rounded-[30px] w-full p-4 my-4 shadow-inner flex flex-col md:flex-row items-center">
+                <Card className="max-w-screen-lg bg-transparent border-gray-800 rounded-[30px] w-full p-4 shadow-inner flex flex-col md:flex-row items-center">
                   <div className="md:text-left max-w-md">
                     <CardTitle className="text-3xl text-customWhite mb-4 ">
                       Streamlined Process
@@ -213,7 +213,7 @@ export default function Home() {
                     />
                   </div>
                 </Card>
-                <Card className="max-w-screen-lg bg-transparent border-gray-800 rounded-[30px] w-full p-4 my-4 shadow-inner flex flex-col md:flex-row items-center">
+                <Card className="max-w-screen-lg bg-transparent border-gray-800 rounded-[30px] w-full p-4 border-2 shadow-inner flex flex-col md:flex-row items-center">
                   <div className="mb-4">
                     <Image
                       src="/transparency.avif"
@@ -235,7 +235,7 @@ export default function Home() {
                     </CardContent>
                   </div>
                 </Card>
-                <Card className="max-w-screen-lg bg-transparent border-gray-800 rounded-[30px] w-full p-4 my-4 shadow-inner flex flex-col md:flex-row items-center">
+                <Card className="max-w-screen-lg bg-transparent border-gray-800 rounded-[30px] w-full p-4 shadow-inner flex flex-col md:flex-row items-center">
                   <div className="md:text-left max-w-md">
                     <CardTitle className="text-3xl text-customWhite mb-4 ">
                       Ease of Use
