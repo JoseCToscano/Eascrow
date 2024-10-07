@@ -116,7 +116,7 @@ const config = {
         'radial-gradient-center':
           'radial-gradient(circle at center,#19212B, #001122 )',
         'custom-gradient':
-          'linear-gradient(90deg, rgba(68,144,111,0.5018382352941176) 0%, rgba(0,17,34,0.7959558823529411) 88%)',
+          'linear-gradient(145deg, rgba(92, 255, 184, 0.3) 0%, rgba(16, 22, 54, 0.3) 100%)',
         'custom-bg': "url('/wave.webp')",
       },
     },

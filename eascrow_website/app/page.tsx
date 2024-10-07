@@ -16,16 +16,16 @@ export default function Home() {
   return (
     <>
       <div className="text-center flex flex-col items-center ">
-        <h1 className="text-4xl md:text-5xl font-bold">
+        <h1 className="text-4xl md:text-7xl font-bold max-w-3xl">
           When the trusted third is the{' '}
           <span className="text-neonMintGreen block my-4">blockchain</span>
         </h1>
-        <p className="text-slate-400 px-4 mb-10 md:max-w-screen-lg">
+        <p className="font-['Onest'] text-sm text-slate-400 px-4 mb-10 md:max-w-xl">
           Eascrow leverages Soroban to provide secured escrow services for web3,
           guaranteeing fast and fraud-resistant payments.
         </p>
         <Link href="/dapp" className="">
-          <Button className="px-6 py-7 text-md rounded-lg bg-custom-gradient border border-slate-700 ">
+          <Button className="px-6 py-7 text-md rounded-xl bg-custom-gradient border border-slate-700 ">
             Get started now
           </Button>
         </Link>
