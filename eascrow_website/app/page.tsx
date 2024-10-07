@@ -15,34 +15,36 @@ import { Box, ContactRound, Truck } from 'lucide-react';
 export default function Home() {
   return (
     <>
-      <div className="text-center flex flex-col items-center ">
-        <h1 className="text-4xl md:text-7xl font-bold max-w-3xl">
-          When the trusted third is the{' '}
-          <span className="text-neonMintGreen block my-4">blockchain</span>
-        </h1>
-        <p className="font-['Onest'] text-sm text-slate-400 px-4 mb-10 md:max-w-xl">
-          Eascrow leverages Soroban to provide secured escrow services for web3,
-          guaranteeing fast and fraud-resistant payments.
-        </p>
-        <Link href="/dapp" className="">
-          <Button className="px-6 py-7 text-md rounded-xl bg-custom-gradient border border-slate-700 ">
-            Get started now
-          </Button>
-        </Link>
-      </div>
-      <section className="flex flex-col items-center space-y-4 bg-custom-bg bg-local bg-contain bg-no-repeat md:bg-cover">
-        <div className="w-5/6 sm:w-3/4 max-w-4xl rounded-[25px] overflow-hidden">
-          <Image
-            src="/dashboard.webp"
-            alt="Dashboard overview"
-            width={800}
-            height={450}
-            layout="responsive"
-            priority
-            rel="preload"
-          />
+      <div className="bg-custom-bg bg-local bg-bottom bg-130 bg-no-repeat">
+        <div className="text-center flex flex-col items-center mb-14">
+          <h1 className="text-4xl md:text-7xl font-bold max-w-3xl">
+            When the trusted third is the{' '}
+            <span className="text-neonMintGreen block my-4">blockchain</span>
+          </h1>
+          <p className="font-['Onest'] text-sm text-slate-400 px-4 mb-10 md:max-w-xl">
+            Eascrow leverages Soroban to provide secured escrow services for
+            web3, guaranteeing fast and fraud-resistant payments.
+          </p>
+          <Link href="/dapp">
+            <Button className="px-6 py-7 text-md rounded-xl bg-custom-gradient border border-slate-700 ">
+              Get started now
+            </Button>
+          </Link>
         </div>
-      </section>
+        <section className="flex flex-col items-center space-y-4 ">
+          <div className="w-5/6 sm:w-3/4 max-w-4xl rounded-[25px] overflow-hidden">
+            <Image
+              src="/dashboard.webp"
+              alt="Dashboard overview"
+              width={800}
+              height={450}
+              layout="responsive"
+              priority
+              rel="preload"
+            />
+          </div>
+        </section>
+      </div>
       <div className="flex flex-col items-center text-slate-400 w-screen">
         <div className="items-center flex flex-col">
           <section className="w-full max-w-lg h-64 flex flex-col justify-center space-y-1">
@@ -67,35 +69,39 @@ export default function Home() {
             </div>
           </section>
           <Separator className="w-screen bg-gray-800 mb-10" />
-          <section className="flex flex-col items-center md:max-w-screen-lg mb-32">
-            <div className="mb-4">
-              <Image
-                src="/about-image.avif"
-                alt="Dashboard overview"
-                width={350}
-                height={10}
-              />
+          <section className="flex flex-col  items-center md:max-w-screen-lg mb-32">
+            <div className="flex flex-col md:flex-row items-center">
+              <div className="mb-4">
+                <Image
+                  src="/about-image.avif"
+                  alt="Dashboard overview"
+                  width={350}
+                  height={10}
+                />
+              </div>
+              <div className="text-center md:text-left flex flex-col items-center max-w-sm px-3 my-20">
+                <h3
+                  id="about"
+                  className="w-full text-customWhite text-4xl font-semibold mb-3"
+                >
+                  About
+                </h3>
+                <p>
+                  Eascrow is an innovative web3 escrow service that harnesses
+                  the power of Soroban smart contracts to streamline and secure
+                  online transactions. It acts as a trusted intermediary,
+                  ensuring that funds are safely held and released according to
+                  the terms agreed upon by the involved parties. Our service is
+                  essential for various financial dealings, ranging from
+                  material goods trade to freelance services.
+                </p>
+              </div>
             </div>
-            <div className="text-center flex flex-col items-center px-3 my-20">
-              <h2
-                id="about"
-                className="text-customWhite text-4xl font-bold mb-3"
-              >
-                About
-              </h2>
-              <p>
-                Eascrow is an innovative web3 escrow service that harnesses the
-                power of Soroban smart contracts to streamline and secure online
-                transactions. It acts as a trusted intermediary, ensuring that
-                funds are safely held and released according to the terms agreed
-                upon by the involved parties. Our service is essential for
-                various financial dealings, ranging from material goods trade to
-                freelance services.
-              </p>
-              <Separator className="w-3/4 bg-gray-700 my-20" />
+            <Separator className="w-3/4 bg-gray-700 my-20" />
+            <div className="flex flex-col items-center text-center mb-10 max-w-sm md:max-w-3xl">
               <h2
                 id="features"
-                className="text-customWhite text-5xl font-bold mb-3"
+                className="text-customWhite text-6xl font-bold mb-3"
               >
                 Features
               </h2>
@@ -107,15 +113,15 @@ export default function Home() {
                 transaction process.
               </p>
             </div>
-            <div className="w-full px-2 space-y-6 lg:space-y-0 flex flex-col lg:flex-row items-center lg:justify-evenly">
-              <Card className="max-w-xs bg-transparent border-gray-700 rounded-[30px] w-full h-[400px] shadow-inner shadow-blueGray flex flex-col items-center text-center">
+            <div className="w-full px-2 flex flex-wrap justify-center items-center lg:justify-evenly ">
+              <Card className="max-w-md md:max-w-xs bg-transparent border-gray-700 rounded-[30px] h-[400px] m-2 shadow-[inset_0_-10px_40px_rgba(52,69,92,0.25)] flex flex-col items-center text-center">
                 <div className="w-16 h-16 shadow-lg shadow-black rounded-full flex justify-center items-center bg-[#212b38] my-10">
                   <Box color="#5cffb8" />
                 </div>
                 <CardTitle className="text-customWhite mb-4">
                   For individuals and Businesses
                 </CardTitle>
-                <CardContent className="text-slate-400">
+                <CardContent className="text-slate-400 text-sm">
                   <p>
                     Eascrow reduces fraud risk by securely holding funds until
                     confirmation of goods delivery and satisfaction is received.
@@ -124,14 +130,14 @@ export default function Home() {
                   </p>
                 </CardContent>
               </Card>
-              <Card className="max-w-xs bg-transparent border-gray-700 rounded-[30px] w-full h-[400px] shadow-inner shadow-blueGray flex flex-col items-center text-center">
+              <Card className="max-w-md md:max-w-xs bg-transparent border-gray-700 rounded-[30px] h-[400px] m-2 shadow-[inset_0_-10px_40px_rgba(52,69,92,0.25)] flex flex-col items-center text-center">
                 <div className="w-16 h-16 shadow-lg shadow-black rounded-full flex justify-center items-center bg-[#212b38] my-10">
                   <ContactRound color="#5cffb8" />
                 </div>
                 <CardTitle className="text-customWhite mb-4">
                   For Freelancers and Employers
                 </CardTitle>
-                <CardContent className="text-slate-400">
+                <CardContent className="text-slate-400 text-sm">
                   <p>
                     It ensures secure and streamlined payment for services,
                     holding funds until the completion of agreed work. This
@@ -140,14 +146,14 @@ export default function Home() {
                   </p>
                 </CardContent>
               </Card>
-              <Card className="max-w-xs bg-transparent border-gray-700 rounded-[30px] w-full h-[400px] shadow-inner shadow-blueGray flex flex-col items-center text-center">
+              <Card className="max-w-md md:max-w-xs bg-transparent border-gray-700 rounded-[30px] h-[400px] m-2 shadow-[inset_0_-10px_40px_rgba(52,69,92,0.25)] flex flex-col items-center text-center ">
                 <div className="w-16 h-16 shadow-lg shadow-black rounded-full flex justify-center items-center bg-[#212b38] my-10">
                   <Truck color="#5cffb8" />
                 </div>
-                <CardTitle className="text-customWhite mb-4">
+                <CardTitle className="text-customWhite mb-4 mx-1">
                   For International Transactions
                 </CardTitle>
-                <CardContent className="text-slate-400">
+                <CardContent className="text-slate-400 text-sm">
                   <p>
                     Eascrow simplifies and secures cross-border transactions
                     using Soroban smart contracts. It streamlines compliance
@@ -256,7 +262,7 @@ export default function Home() {
               >
                 Pricing
               </h2>
-              <Card className="max-w-screen md:max-w-screen-md bg-transparent border-gray-700 rounded-[30px] w-full p-5 my-4 space-y-2 shadow-inner flex flex-col items-center">
+              <Card className="max-w-screen md:max-w-screen-md bg-transparent border-none rounded-[30px] w-full p-5 my-4 space-y-2 shadow-[inset_0_-10px_40px_rgba(52,69,92,0.25)] flex flex-col items-center">
                 <CardContent className="text-slate-400 font-bold">
                   <p>
                     At Eascrow, we want to provide a quality service at a low

@@ -52,7 +52,7 @@ const Header: React.FC<HeaderProps> = ({ children }) => {
         <div>
           <MenuBurger />
           <Link href="/dapp" className="hidden sm:block">
-            <Button className="border bg-neonMintGreen text-darkBlueGray h-14 text-md rounded-xl hover:bg-[#4ddb98]">
+            <Button className="bg-neonMintGreen text-darkBlueGray h-14 text-md rounded-xl hover:bg-[#4ddb98]">
               Launch DApp
             </Button>
           </Link>

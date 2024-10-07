@@ -115,9 +115,12 @@ const config = {
       backgroundImage: {
         'radial-gradient-center':
           'radial-gradient(circle at center,#19212B, #001122 )',
-        'custom-gradient':
-          'linear-gradient(145deg, rgba(92, 255, 184, 0.3) 0%, rgba(16, 22, 54, 0.3) 100%)',
+        'custom-gradient': 'linear-gradient(145deg, #5CFFB8, #47CC88)',
+        // 'linear-gradient(145deg, rgba(92, 255, 184, 0.3) 0%, rgba(16, 22, 54, 0.3) 100%)',
         'custom-bg': "url('/wave.webp')",
+      },
+      backgroundSize: {
+        130: '130%', // Ajout d'une taille de fond personnalisée à 120%
       },
     },
   },
