@@ -164,8 +164,8 @@ export default function Home() {
               </Card>
             </div>
           </section>
-          <section className="flex flex-col items-center mb-20 border-2">
-            <div className="text-center flex flex-col items-center px-3 border-2">
+          <section className="flex flex-col items-center mb-20 ">
+            <div className="text-center flex flex-col items-center px-3 ">
               <h2 className="text-customWhite text-4xl md:text-5xl font-bold mb-10">
                 Benefits of Eascrow
               </h2>
