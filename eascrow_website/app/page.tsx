@@ -26,7 +26,7 @@ export default function Home() {
             web3, guaranteeing fast and fraud-resistant payments.
           </p>
           <Link href="/dapp">
-            <Button className="px-6 py-7 text-md rounded-xl bg-custom-gradient border border-slate-700 ">
+            <Button className="px-6 py-7 text-md rounded-xl  bg-custom-gradient hover:opacity-90 border border-slate-700 ">
               Get started now
             </Button>
           </Link>
@@ -192,7 +192,7 @@ export default function Home() {
                     </CardContent>
                   </div>
                 </Card>
-                <Card className="max-w-screen-lg bg-transparent border-gray-800 rounded-[30px] w-full p-4 shadow-inner flex flex-col md:flex-row items-center">
+                <Card className="max-w-screen-lg bg-transparent border-gray-800 rounded-[30px] w-full p-4 md:pl-16 shadow-inner flex flex-col md:flex-row items-center">
                   <div className="md:text-left max-w-md">
                     <CardTitle className="text-3xl text-customWhite mb-4 ">
                       Streamlined Process
@@ -235,9 +235,9 @@ export default function Home() {
                     </CardContent>
                   </div>
                 </Card>
-                <Card className="max-w-screen-lg bg-transparent border-gray-800 rounded-[30px] w-full p-4 shadow-inner flex flex-col md:flex-row items-center">
+                <Card className="max-w-screen-lg bg-transparent border-gray-800 rounded-[30px] w-full p-4 md:pl-16 shadow-inner flex flex-col md:flex-row items-center">
                   <div className="md:text-left max-w-md">
-                    <CardTitle className="text-3xl text-customWhite mb-4 ">
+                    <CardTitle className="text-3xl text-customWhite mb-4">
                       Ease of Use
                     </CardTitle>
                     <CardContent className="text-slate-400 m-0 p-0">
@@ -273,7 +273,7 @@ export default function Home() {
                   </p>
                 </CardContent>
                 <Link href="/dapp" className="">
-                  <Button className="px-6 py-7 text-md rounded-lg bg-custom-gradient border border-slate-700 ">
+                  <Button className="px-6 py-7 text-md rounded-lg bg-custom-gradient hover:opacity-90 border border-slate-700 ">
                     Get started now
                   </Button>
                 </Link>
