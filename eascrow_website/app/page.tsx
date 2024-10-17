@@ -322,13 +322,12 @@ export default function Home() {
                     <Card className="max-w-screen md:max-w-screen-md bg-gray-800 border-none rounded-[20px] pt-4">
                       <CardContent className="text-slate-400 font-bold text-base">
                         <p>
-                          Eascrow is a web3 escrow service that utilizes Soroban
-                          smart contracts to securely hold and release funds
-                          based on pre-agreed terms between parties. It acts as
-                          a trusted intermediary in online transactions,
-                          ensuring that funds are only released when the
-                          conditions of the contract are met, such as the
-                          delivery of goods or completion of services.
+                          Eascrow significantly reduces the risk of fraud by
+                          securely holding funds in an escrow account until all
+                          agreed-upon conditions are met. The use of Soroban
+                          smart contracts ensures that the transaction process
+                          is transparent, immutable, and secure, providing peace
+                          of mind to all involved parties.
                         </p>
                       </CardContent>
                     </Card>
