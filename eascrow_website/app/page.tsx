@@ -68,6 +68,7 @@ export default function Home() {
               </div>
             </div>
           </section>
+          <div id="about"></div>
           <Separator className="w-screen bg-gray-800 mb-10" />
           <section className="flex flex-col  items-center md:max-w-screen-lg mb-32">
             <div className="flex flex-col md:flex-row items-center">
@@ -79,11 +80,8 @@ export default function Home() {
                   height={10}
                 />
               </div>
-              <div className="text-center md:text-left flex flex-col items-center max-w-sm px-3 my-20">
-                <h3
-                  id="about"
-                  className="w-full text-customWhite text-4xl font-semibold mb-3"
-                >
+              <div className="text-center md:text-left flex flex-col items-center max-w-sm px-3 my-20 ">
+                <h3 className="w-full text-customWhite text-4xl font-semibold mb-3">
                   About
                 </h3>
                 <p>
@@ -97,12 +95,10 @@ export default function Home() {
                 </p>
               </div>
             </div>
+            <div id="features"></div>
             <Separator className="w-3/4 bg-gray-700 my-20" />
             <div className="flex flex-col items-center text-center mb-10 max-w-sm md:max-w-3xl">
-              <h2
-                id="features"
-                className="text-customWhite text-6xl font-bold mb-3"
-              >
+              <h2 className="text-customWhite text-6xl font-bold mb-3">
                 Features
               </h2>
               <p>
@@ -254,12 +250,10 @@ export default function Home() {
                       height={10}
                     />
                   </div>
+                  <div id="pricing"></div>
                 </Card>
               </div>
-              <h2
-                id="pricing"
-                className="text-customWhite text-4xl md:text-5xl font-bold mb-10"
-              >
+              <h2 className="text-customWhite text-4xl md:text-5xl font-bold mb-10">
                 Pricing
               </h2>
               <Card className="max-w-screen md:max-w-screen-md bg-transparent border-none rounded-[30px] w-full p-5 my-4 space-y-2 shadow-[inset_0_-10px_40px_rgba(52,69,92,0.25)] flex flex-col items-center">
