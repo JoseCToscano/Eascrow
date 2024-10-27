@@ -74,39 +74,6 @@ export default function SmartContractUI() {
         }
     }
 
-    const handletTest = async () => {
-        try {
-
-            console.log('formData', formData)
-            const contractParams = [
-                addressToScVal(formData.sellerAddress),
-                addressToScVal(formData.buyerAddress),
-                addressToScVal(formData.tokenAddress),
-                numberToi128(Number(formData.price)),
-            ];
-
-            console.log("contractParams", contractParams.length);
-
-            /**
-             * This contract call will send the Assets to the Ticket Sale Contract
-             */
-            const xdr = await getContractXDR(
-                formData.sacAddress,
-                "test",
-                formData.buyerAddress, // Contract's caller
-                contractParams, //
-            );
-
-            const signedXDR = await signXDR(xdr);
-            console.log("signedXDR", signedXDR, signedXDR.signedTxXdr);
-            const txResult = await callWithSignedXDR(signedXDR.signedTxXdr);
-            console.log("txResult", txResult);
-
-        } catch (error) {
-            console.error(error)
-        }
-    }
-
     const handleReleaseFunds = async () => {
         try {
 
