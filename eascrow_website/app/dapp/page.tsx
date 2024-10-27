@@ -24,7 +24,7 @@ export default function SmartContractUI() {
     })
 
     const [formData, setFormData] = useState({
-        sacAddress: 'CBKTCJS5IHNNBEW3MWX3J3QKECP4NWFJ6NO7XPTBH3W2IJ63CHLSBELN',
+        sacAddress: 'CCL4XLVBZZCJ4ZFESWFBHGYTBQKANQYDZ5AR7MQZ56U2C5ZYYBPKGTFP',
         buyerAddress: '',
         sellerAddress: '',
         tokenAddress: '',
@@ -69,16 +69,94 @@ export default function SmartContractUI() {
             const txResult = await callWithSignedXDR(signedXDR.signedTxXdr);
             console.log("txResult", txResult);
 
-            // const result = await callInitialize('Initialize', formData)
-            // setContractState({
-            //     ...contractState,
-            //     initialized: true,
-            //     buyer: formData.buyerAddress,
-            //     seller: formData.sellerAddress,
-            //     token: formData.tokenAddress,
-            //     price: Number(formData.price),
-            // })
-            // addLog('Contract initialized')
+        } catch (error) {
+            console.error(error)
+        }
+    }
+
+    const handletTest = async () => {
+        try {
+
+            console.log('formData', formData)
+            const contractParams = [
+                addressToScVal(formData.sellerAddress),
+                addressToScVal(formData.buyerAddress),
+                addressToScVal(formData.tokenAddress),
+                numberToi128(Number(formData.price)),
+            ];
+
+            console.log("contractParams", contractParams.length);
+
+            /**
+             * This contract call will send the Assets to the Ticket Sale Contract
+             */
+            const xdr = await getContractXDR(
+                formData.sacAddress,
+                "test",
+                formData.buyerAddress, // Contract's caller
+                contractParams, //
+            );
+
+            const signedXDR = await signXDR(xdr);
+            console.log("signedXDR", signedXDR, signedXDR.signedTxXdr);
+            const txResult = await callWithSignedXDR(signedXDR.signedTxXdr);
+            console.log("txResult", txResult);
+
+        } catch (error) {
+            console.error(error)
+        }
+    }
+
+    const handleReleaseFunds = async () => {
+        try {
+
+            const contractParams = [
+
+            ];
+
+
+            /**
+             * This contract call will send the Assets to the Ticket Sale Contract
+             */
+            const xdr = await getContractXDR(
+                formData.sacAddress,
+                "release_funds",
+                formData.buyerAddress, // Contract's caller
+                contractParams, //
+            );
+
+            const signedXDR = await signXDR(xdr);
+            console.log("signedXDR", signedXDR, signedXDR.signedTxXdr);
+            const txResult = await callWithSignedXDR(signedXDR.signedTxXdr);
+            console.log("txResult", txResult);
+        } catch (error) {
+            console.error(error)
+        }
+    }
+
+    const handleFund = async () => {
+        try {
+
+            const contractParams = [
+                addressToScVal(formData.buyerAddress),
+                numberToi128(Number(formData.price))
+            ];
+
+
+            /**
+             * This contract call will send the Assets to the Ticket Sale Contract
+             */
+            const xdr = await getContractXDR(
+                formData.sacAddress,
+                "fund",
+                formData.buyerAddress, // Contract's caller
+                contractParams, //
+            );
+
+            const signedXDR = await signXDR(xdr);
+            console.log("signedXDR", signedXDR, signedXDR.signedTxXdr);
+            const txResult = await callWithSignedXDR(signedXDR.signedTxXdr);
+            console.log("txResult", txResult);
         } catch (error) {
             console.error(error)
         }
@@ -122,6 +200,8 @@ export default function SmartContractUI() {
                 </CardContent>
                 <CardFooter>
                     <Button onClick={handleInitialize} disabled={contractState.initialized}>Initialize Contract</Button>
+                    <Button onClick={handleFund} >Fund</Button>
+                    <Button onClick={handleReleaseFunds} >Release Funds</Button>
                 </CardFooter>
             </Card>
         </div>
